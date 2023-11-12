@@ -14,7 +14,7 @@
         <div class="col-lg-6 py-3 table-data mx-auto">
             <h6>Data Mapel</h6>
             <hr>
-            <div class="table-responsive">
+            <div class="table-responsive table-all">
                 <table class="table">
                     <tr>
                         <th>No</th>

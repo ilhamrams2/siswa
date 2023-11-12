@@ -30,17 +30,25 @@
 </head>
 
 <body style="background-color: #f1f1f1 !important;">
+    <?php
+    // Di halaman tujuan, misalnya di file view
+    $session = session();
+    $message = $session->getFlashdata('msg');
 
+    if ($message) {
+        echo "<script>alert('$message');</script>";
+    }
+    ?>
     <div class="container">
         <div class="row" style="min-height: 100vh;">
 
             <div class="col-lg-10 col-10 my-auto mx-auto p-5 shadow-lg" style="background-color: white; border-radius:10px;">
                 <div class="row my-auto">
                     <div class="col-lg-6 my-auto text-center d-none d-lg-flex">
-                        
+
                     </div>
                     <div class="col-lg-5 col-12 mx-auto my-auto py-5 text-center">
-                    <h5 class="font-weight-bold pb-4">Selamat Datang</h5>
+                        <h5 class="font-weight-bold pb-4">Selamat Datang</h5>
                         <form method="post" action="<?= site_url('login') ?>">
                             <input type="text" name="username" id="username" class="form-control" placeholder="Username">
                             <br>

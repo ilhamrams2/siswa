@@ -22,7 +22,7 @@
         <div class="col-lg-7 py-3 table-data mx-auto">
             <h6>Data Kelas</h6>
             <hr>
-            <div class="table-responsive">
+            <div class="table-responsive table-all">
                 <table class="table">
                     <tr>
                         <th>No</th>

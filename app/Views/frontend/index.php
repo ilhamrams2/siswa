@@ -21,6 +21,7 @@
             }
         }
     </script>
+
 </head>
 
 <body style="background-color: #f1f1f1 !important;">
@@ -82,7 +83,7 @@
                             <?php endforeach ?>
                         <?php else : ?>
                             <div class="col-12 p-0 my-auto">
-                               <h6 style="font-size: 12px;">Data Nilai Anda Masih Kosong</h6> 
+                                <h6 style="font-size: 12px;">Data Nilai Anda Masih Kosong</h6>
                             </div>
                         <?php endif ?>
 
@@ -92,7 +93,7 @@
 
 
                         <?php if (!empty($SiswaData['tmpt_lahir'])) : ?>
-                            <div  class="col-12 p-0 d-flex justify-content-between align-items-center">
+                            <div class="col-12 p-0 d-flex justify-content-between align-items-center">
                                 <h6 class="text-capitalize m-0 p-0 font-weight-bold">
                                     Biodata Siswa
                                 </h6>
@@ -264,13 +265,13 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="uname">Tempat Lahir:</label>
-                                        <input type="text" class="form-control" id="tmpt_lahir" placeholder="Enter username" name="tmpt_lahir" required>
+                                        <input type="text" class="form-control" id="tmpt_lahir" name="tmpt_lahir" required>
                                         <div class="valid-feedback">Valid.</div>
                                         <div class="invalid-feedback">Please fill out this field.</div>
                                     </div>
                                     <div class="form-group">
                                         <label for="uname">Tanggal Lahir:</label>
-                                        <input type="date" class="form-control" id="tgl_lahir" placeholder="Enter username" name="tgl_lahir" required>
+                                        <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" required>
                                         <div class="valid-feedback">Valid.</div>
                                         <div class="invalid-feedback">Please fill out this field.</div>
                                     </div>
@@ -340,7 +341,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="uname">Tanggal Lahir:</label>
-                                        <input type="date" class="form-control" id="tgl_lahir" placeholder="Enter username" name="tgl_lahir" required value="<?= $SiswaData['tgl_lahir'] ?>">
+                                        <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" required value="<?= $SiswaData['tgl_lahir'] ?>">
                                         <div class="valid-feedback">Valid.</div>
                                         <div class="invalid-feedback">Please fill out this field.</div>
                                     </div>
@@ -362,7 +363,7 @@
                                     <div class="form-group">
                                         <label for="pwd">Password:</label>
                                         <input type="password" id="password" name="pswd" class="form-control" value="<?= $SiswaData['password'] ?>">
-                                        <small><input type="checkbox" class="mt-3 ml-1" onclick="togglePasswordVisibility()"> Show Password</small>
+                                        <small><input type="checkbox" class="mt-3 ml-1" onclick="ttogglePasswordVisibility()"> Show Password</small>
                                         <div class="valid-feedback">Valid.</div>
                                         <div class="invalid-feedback">Please fill out this field.</div>
                                     </div>
@@ -385,7 +386,16 @@
     </div>
 
 
-
+    <script>
+        function ttogglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+    </script>
 </body>
 
 </html>

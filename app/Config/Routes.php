@@ -25,9 +25,15 @@ $routes->get('/logout', 'Auth::logout');
 $routes->group('/dashboard', function ($routes) {
 
     $routes->get('/', 'Backend::index');
+
 });
 
-$routes->get('all-data', 'AllDataController::index');
+$routes->get('/all-data', 'AllDataController::index');
+$routes->get('/siswaPage', 'Siswa::index');
+$routes->post('/siswaDataCreate', 'Siswa::create');
+$routes->get('/siswaDataEdit/(:num)', 'Siswa::edit/$1');
+$routes->post('/siswaDataUpdate/(:num)', 'Siswa::update/$1');
+$routes->get('/siswaDataDelete/(:num)', 'Siswa::delete/$1');
 
 $routes->post('/createKelas', 'Kelas::create');
 $routes->get('/deleteKelas/(:num)', 'Kelas::delete/$1');

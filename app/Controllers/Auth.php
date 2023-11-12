@@ -54,15 +54,15 @@ class Auth extends BaseController
         if (session()->has('siswa')) {
 
             $session = session();
-            $session->destroy();
-            return redirect()->to('login');
+            $session->remove('siswa');
 
         } elseif (session()->has('user')) {
 
             $session = session();
-            $session->destroy();
-            return redirect()->to('login');
-
+            $session->remove('user');
+            
         }
+
+        return redirect()->to('login')->with('msg', 'Berhasil logout');
     }
 }

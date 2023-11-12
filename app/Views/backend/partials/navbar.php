@@ -9,7 +9,7 @@
         <hr>
     </li>
     <li class="nav-item">
-        <a class="nav-link p-1" href="#">Data Siswa</a>
+        <a class="nav-link p-1" href="<?= site_url('/siswaPage')?>">Data Siswa</a>
         <hr>
     </li>
     <li class="nav-item">
