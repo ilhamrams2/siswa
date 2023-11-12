@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&family=Roboto+Condensed&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+label {
+    font-size: 12px;
+}
+
+.content {
+    margin-top: 35px;
+}
+
+.input {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 20px;
+    font-size: 12px;
+    width: 100%;
+}
+
+.wrapper {
+    min-height: 100vh;
+    overflow: hidden;
+    /* Mengatur tinggi minimum wrapper sesuai dengan tinggi viewport */
+}
+
+.kegiatan {
+    overflow-x: auto !important;
+    max-height: 530px !important;
+    padding: 0px 20px !important;
+    scroll-behavior: smooth;
+    scroll-margin: 50px;
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+
+    /* Aturan CSS untuk ukuran layar sm */
+    /* .kegiatan {
+                /* padding: 0px !important; */
+    /* } */
+}
+
+
+.kegiatan .article {
+    background-color: white !important;
+    border-radius: 10px !important;
+    padding: 20px 20px !important;
+}
+
+.kegiatan .article img {
+    border-radius: 10px 10px 10px 10px !important;
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.kegiatan .article .p {
+    font-size: 12px;
+}
+
+.footer {
+    background-color: white !important;
+    font-size: 12px;
+}
+
+.nilai {
+    max-height: 235px !important;
+    overflow-x: auto !important;
+}
+
+.alamat {
+    max-height: 200px;
+    overflow-x: auto !important;
+}
+
+.valid-feedback,
+.invalid-feedback {
+    font-size: 10px;
+}
+
+.modal-body label {
+    font-weight: bold;
+}
