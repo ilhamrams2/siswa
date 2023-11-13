@@ -175,29 +175,15 @@
                                 <div class="font-weight-bold">Kegiatan Sekolah</div>
                             </div>
 
-                            <div class="col-12 mb-3 article shadow-sm">
-                                <img src="<?= base_url('images/gm.jpg') ?>" alt="" class="img-fluid">
-                                <div class="h6 mt-3">Kegiatan Acara Hari Guru</div>
-                                <div class="p">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur quia eius adipisci modi, repellendus totam aperiam ullam, quas quam ex nulla illum. Quidem esse ea recusandae aut sequi saepe consectetur similique provident sit.
+                            <?php foreach ($KegiatanData as $kegiatan) : ?>
+                                <div class="col-12 mb-3 article shadow-sm article-kegiatan">
+                                    <img src="<?= base_url('images/kegiatan/'. $kegiatan['gambar']) ?>" alt="" class="img-fluid">
+                                    <div class="h6 mt-3"><?=$kegiatan['nama_kegiatan']?></div>
+                                    <div class="p">
+                                        <?=$kegiatan['artikel_kegiatan']?>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="col-12 mb-3 article shadow-sm">
-                                <img src="<?= base_url('images/gm.jpg') ?>" alt="" class="img-fluid">
-                                <div class="h6 mt-3">Kegiatan Acara Hari Guru</div>
-                                <div class="p">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur quia eius adipisci modi, repellendus totam aperiam ullam, quas quam ex nulla illum. Quidem esse ea recusandae aut sequi saepe consectetur similique provident sit.
-                                </div>
-                            </div>
-
-                            <div class="col-12 mb-3 article">
-                                <img src="<?= base_url('images/gm.jpg') ?>" alt="" class="img-fluid">
-                                <div class="h6 mt-3">Kegiatan Acara Hari Guru</div>
-                                <div class="p">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur quia eius adipisci modi, repellendus totam aperiam ullam, quas quam ex nulla illum. Quidem esse ea recusandae aut sequi saepe consectetur similique provident sit.
-                                </div>
-                            </div>
+                            <?php endforeach ?>
 
                         </div>
                     </div>

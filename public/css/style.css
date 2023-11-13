@@ -85,3 +85,7 @@ label {
 .modal-body label {
     font-weight: bold;
 }
+.article-kegiatan{
+    max-height: 421px !important;
+    overflow-x: auto !important;
+}

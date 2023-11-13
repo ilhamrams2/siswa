@@ -1,7 +1,7 @@
 <div class="col-12 py-3 shadow-sm" style="background-color: white !important; border-radius:10px !important;">
     <div class="col-12 mb-3 p-0">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            + Insert Data Siswa
+            + Insert Data Guru
         </button>
     </div>
     <div class="table-responsive siswa-table">
@@ -9,42 +9,28 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>NIS</th>
+                    <th>NUPTK</th>
                     <th>Nama</th>
-                    <th>TTL</th>
-                    <th>Alamat</th>
-                    <th>Agama</th>
-                    <th>Kelas</th>
                     <th>Password</th>
+                    <th>Mapel</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 $no = 1;
-                foreach ($siswaData as $siswa) : ?>
+                foreach ($DataGuru as $guru) : ?>
                     <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $siswa['nis'] ?></td>
-                        <td><?= $siswa['nama_depan'] ?> <?= $siswa['nama_belakang'] ?></td>
-                        <td>
-                            <?php if ($siswa['tgl_lahir']) : ?>
-                                <?= $siswa['tmpt_lahir'] ?>,
-                                <?= date('d/m/Y', strtotime($siswa['tgl_lahir'])) ?>
-                            <?php else : ?>
-                                Tidak Diketahui
-                            <?php endif; ?>
-                        </td>
-
-                        <td><?= $siswa['alamat'] ?? 'Tidak Diketahui' ?></td>
-                        <td><?= $siswa['agama'] ?? 'Tidak Diketahui' ?></td>
-                        <td><?= $siswa['kelas'] ?><?= $siswa['nama_jurusan'] ?></td>
-                        <td><?= $siswa['password'] ?></td>
+                        <td><?= $guru['nuptk'] ?></td>
+                        <td><?= $guru['nama_depan'] ?> <?= $guru['nama_belakang'] ?></td>
+                        <td><?= $guru['password'] ?></td>
+                        <td><?= $guru['mapel_id'] ?></td>
                         <td>
 
-                            <a href="<?= site_url('/siswaDataEdit/' . $siswa['id'] . '?edit=true') ?>" class="btn btn-primary p-0 px-1">Edit</a> | 
-                            <a href="<?= site_url('/siswaDataDelete/' . $siswa['id']) ?>" class="btn btn-danger p-0 px-1" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Hapus</a>
-                            
+                            <a href="<?= site_url('/guruDataEdit/' . $guru['id'] . '?edit=true') ?>" class="btn btn-primary p-0 px-1">Edit</a> |
+                            <a href="<?= site_url('/guruDataDelete/' . $guru['id']) ?>" class="btn btn-danger p-0 px-1" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Hapus</a>
+
                         </td>
                     </tr>
                 <?php endforeach ?>
@@ -52,13 +38,10 @@
             <tfoot>
                 <tr>
                     <th>No</th>
-                    <th>NIS</th>
+                    <th>NUPTK</th>
                     <th>Nama</th>
-                    <th>TTL</th>
-                    <th>Alamat</th>
-                    <th>Agama</th>
-                    <th>Kelas</th>
                     <th>Password</th>
+                    <th>Mapel</th>
                     <th>Aksi</th>
                 </tr>
             </tfoot>
@@ -76,17 +59,15 @@
             </div>
 
             <!-- Modal body -->
-            <form action="<?=site_url('/siswaDataCreate')?>" method="post">
+            <form action="<?=site_url('/guruDataCreate')?>" method="post">
                 <div class="modal-body">
                     <div class="row m-0">
 
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="nis">Nis : </label>
-                                <input type="text" class="form-control" name="nis" id="nis">
-                            </div>
-                        </div>
                         <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="nuptk">NUPTK : </label>
+                                <input type="text" class="form-control" name="nuptk" id="nuptk">
+                            </div>
 
                             <div class="form-group">
                                 <label for="nama_depan">Nama Depan : </label>
@@ -94,13 +75,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="Kelas">Kelas : </label>
-                                <select class="form-control" name="Kelas" id="Kelas">
-                                    <?php foreach ($kelasData as $key => $value) : ?>
-                                        <option value="<?= $value['id'] ?>">
-                                            <?= $value['kelas'] ?><?= $value['nama_jurusan'] ?>
-                                        </option>
-                                    <?php endforeach ?>
+                                <label for="mapel_id">Mapel : </label>
+                                <select class="form-control" name="mapel_id" id="mapel_id">
+                                    <?php foreach($DataMapel as $mapel): ?>
+                                        <option value="<?=$mapel['id']?>"><?=$mapel['nama_mapel']?></option>
+                                    <?php endforeach?>
                                 </select>
                             </div>
 

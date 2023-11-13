@@ -27,8 +27,8 @@ class Backend extends BaseController
         return view('backend/dashboard', ['kelas' => $kelas, 'jurusan' => $jurusan, 'mapel' => $mapel]);
     }
 
-    public function view($pageId)
+    public function index1()
     {
-        
+        return view('backend/guruPage');
     }
 }

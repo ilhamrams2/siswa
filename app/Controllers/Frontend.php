@@ -6,6 +6,7 @@ use App\Models\KelasModel;
 use App\Models\NilaiModel;
 use App\Models\SiswaModel;
 use App\Controllers\BaseController;
+use App\Models\KegiatanModel;
 
 class Frontend extends BaseController
 {
@@ -20,6 +21,9 @@ class Frontend extends BaseController
         $NilaiModel = new NilaiModel();
         $NilaiData = $NilaiModel->getNilaiWithMapel()->where('siswa_id', $siswaID)->findAll();
 
+        $KegiatanModel = new KegiatanModel();
+        $KegiatanData = $KegiatanModel->findAll();
+
         $rataRataNilai = 0;
 
         if ($SiswaData) {
@@ -28,9 +32,9 @@ class Frontend extends BaseController
             $jumlahNilai = count($NilaiData);
             $rataRataNilai = ($jumlahNilai > 0) ? ($totalNilai / $jumlahNilai) : 0;
 
-            return view('frontend/index', ['SiswaData' => $SiswaData, 'NilaiData' => $NilaiData, 'rataRataNilai' => $rataRataNilai]);
+            return view('frontend/index', ['SiswaData' => $SiswaData, 'NilaiData' => $NilaiData, 'rataRataNilai' => $rataRataNilai,'KegiatanData' => $KegiatanData]);
         } else {
-            return view('frontend/index', ['SiswaData' => $SiswaData]);
+            return view('frontend/index', ['SiswaData' => $SiswaData, 'KegiatanData' => $KegiatanData]);
         }
     }
 

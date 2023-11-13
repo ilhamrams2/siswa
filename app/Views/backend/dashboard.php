@@ -82,6 +82,10 @@
             max-height: 250px !important;
             overflow-x: auto !important;
         }
+        .siswa-table {
+            max-height: 400px !important;
+            overflow-x: auto !important;
+        }
     </style>
 </head>
 
@@ -98,13 +102,10 @@
 
             <div class="col-lg-10 col-sm-10 main-content p-0">
                 <div class="col-12 bg-white shadow-sm">
-                    <br>
-                    <h6 class="text-right">
+                    <h6 class="text-right py-3">
                         <?= session('user.nama_depan') ?> <?= session('user.nama_belakang') ?><a href="<?= site_url('/logout') ?>" class="btn-sm"><i class="fas fa-sign-out-alt"></i></a>
-                        <!-- font awsome out -->
-                        
+                        <!-- font awsome out -->             
                     </h6>
-                    <br>
                 </div>
                 <div class="container">
 

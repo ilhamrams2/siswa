@@ -2,9 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Models\GuruModel;
 use App\Models\UserModel;
-use App\Controllers\BaseController;
 use App\Models\SiswaModel;
+use App\Controllers\BaseController;
 
 class Auth extends BaseController
 {
@@ -12,6 +13,7 @@ class Auth extends BaseController
     {
         $userModel = new UserModel();
         $siswaModel = new SiswaModel();
+        $guruModel = new GuruModel();
         $data['users'] = $userModel->findAll();
         $datas['siswa'] = $siswaModel->findAll();
 
@@ -25,16 +27,16 @@ class Auth extends BaseController
 
         $siswaModel = new SiswaModel();
         $userModel = new UserModel();
+        $guruModel = new GuruModel();
 
         $user = $userModel->where('username', $username)->first();
         $siswa = $siswaModel->where('nis', $username)->first();
+        $guru = $guruModel->where('nuptk', $username)->first();
 
         if ($siswa && $pass = $siswaModel->where('password', $password)->first()) {
 
             $session = session();
             $session->set('siswa', $siswa);
-
-            // dd($pass);
 
             return redirect()->to('/');
 
@@ -44,9 +46,17 @@ class Auth extends BaseController
             $session->set('user', $user);
 
             return redirect()->to('/dashboard');
-        } else {
+        } elseif ($guru && $pass = $guruModel->where('password', $password)->first()) {
+
+            $session = session();
+            $session->set('guru', $guru);
+
+            return redirect()->to('/dashboard');
+
+        }else {
             return view('login/login', ['error' => 'Username atau password salah']);
         }
+           
     }
 
     public function logout()
@@ -54,13 +64,17 @@ class Auth extends BaseController
         if (session()->has('siswa')) {
 
             $session = session();
-            $session->remove('siswa');
+            $session->destroy();
 
         } elseif (session()->has('user')) {
 
             $session = session();
-            $session->remove('user');
-            
+            $session->destroy(); 
+
+        }elseif (session()->has('guru')) {
+
+            $session = session();
+            $session->destroy();            
         }
 
         return redirect()->to('login')->with('msg', 'Berhasil logout');
