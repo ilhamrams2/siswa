@@ -13,7 +13,7 @@
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title">Update Data Siswa</h4>
-                <a href="/siswaPage"><button type="button" class="close" data-bs-dismiss="modal">X</button></a>
+                <a href="/guruPage"><button type="button" class="close" data-bs-dismiss="modal">&times;</button></a>
             </div>
 
             <!-- Modal body -->

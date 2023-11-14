@@ -9,10 +9,10 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama Kegiatan</th>
-                    <th>Mapel</th>
+                    <th>Gambar</th>
                     <th>Kegiatan</th>
                     <th>Id_Kegiatan</th>
+                    <th>Artikel</th>
                     <th class="text-center">Aksi</th>
                 </tr>
             </thead>
@@ -22,16 +22,16 @@
                 foreach ($DataKegiatan as $kegiatan) : ?>
                     <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $kegiatan['id'] ?></td>
-                        <td><?= $kegiatan['nama_kegiatan'] ?></td>
                         <td>
-                            <img style="width:50px;" src="<?=base_url('images/kegiatan/'. $kegiatan['gambar'])?>" alt="">
+                            <img style="width:100px;" src="<?=base_url('images/kegiatan/'. $kegiatan['gambar'])?>" alt="">
                         </td>
+                        <td><?= $kegiatan['nama_kegiatan'] ?></td>
+                        <td><?= $kegiatan['id'] ?></td>
                         <td><?= $kegiatan['artikel_kegiatan'] ?></td>
 
                         <td class="text-center">
 
-                            <a href="<?= site_url('/kegiatanDataEdit/' . $kegiatan['id'] . '?edit=true') ?>" class="btn btn-primary p-0 px-1">Edit</a> |
+                            <a href="<?= site_url('/kegiatanDataEdit/' . $kegiatan['id'] . '?edit=true') ?>" class="my-3 btn small-btn btn-primary p-0 px-1">Edit</a>
                             <a href="<?= site_url('/kegiatanDataDelete/' . $kegiatan['id']) ?>" class="btn btn-danger p-0 px-1" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Hapus</a>
 
                         </td>

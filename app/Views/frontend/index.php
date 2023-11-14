@@ -71,17 +71,18 @@
                                         <?= $nilai['nilai'] ?>
                                     </h6>
                                 </div>
-                                <hr>
-                                <div class="col-12 p-0 py-2 d-flex justify-content-between align-items-center">
-                                    <h6 class="text-capitalize font-weight-bold m-0" style="font-size: 12px;">
-                                        Rata-rata
-                                    </h6>
-                                    <h6 class="text-capitalize m-0" style="font-size: 12px;">
-                                        <?= number_format($rataRataNilai, 1) ?>
-                                    </h6>
-                                </div>
                             <?php endforeach ?>
+                            <hr>
+                            <div class="col-12 p-0 py-2 d-flex justify-content-between align-items-center">
+                                <h6 class="text-capitalize font-weight-bold m-0" style="font-size: 12px;">
+                                    Rata-rata
+                                </h6>
+                                <h6 class="text-capitalize m-0" style="font-size: 12px;">
+                                    <?= number_format($rataRataNilai, 1) ?>
+                                </h6>
+                            </div>
                         <?php else : ?>
+                            
                             <div class="col-12 p-0 my-auto">
                                 <h6 style="font-size: 12px;">Data Nilai Anda Masih Kosong</h6>
                             </div>
@@ -177,10 +178,10 @@
 
                             <?php foreach ($KegiatanData as $kegiatan) : ?>
                                 <div class="col-12 mb-3 article shadow-sm article-kegiatan">
-                                    <img src="<?= base_url('images/kegiatan/'. $kegiatan['gambar']) ?>" alt="" class="img-fluid">
-                                    <div class="h6 mt-3"><?=$kegiatan['nama_kegiatan']?></div>
+                                    <img src="<?= base_url('images/kegiatan/' . $kegiatan['gambar']) ?>" alt="" class="img-fluid">
+                                    <div class="h6 mt-3"><?= $kegiatan['nama_kegiatan'] ?></div>
                                     <div class="p">
-                                        <?=$kegiatan['artikel_kegiatan']?>
+                                        <?= $kegiatan['artikel_kegiatan'] ?>
                                     </div>
                                 </div>
                             <?php endforeach ?>

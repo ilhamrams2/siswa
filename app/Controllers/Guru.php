@@ -10,11 +10,18 @@ class Guru extends BaseController
 {
     public function index()
     {
+        $sesion = session();
+        $guruId = session('guru.id');
+
         $GuruModel = new GuruModel();
         $MapelModel = new MapelModel();
-
-        $DataGuru = $GuruModel->findAll();
-        $DataMapel = $MapelModel->findAll();
+        if ($guruId) {
+            $DataGuru = $GuruModel->getGuruWithMapel()->where('tb_guru.id', $guruId)->find();
+            $DataMapel = $MapelModel->findAll();
+        } else {
+            $DataGuru = $GuruModel->getGuruWithMapel()->findAll();
+            $DataMapel = $MapelModel->findAll();
+        }
 
         return view('backend/page/GuruPage', ['DataGuru' => $DataGuru, 'DataMapel' => $DataMapel]);
     }

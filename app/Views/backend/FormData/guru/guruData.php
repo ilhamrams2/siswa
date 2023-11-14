@@ -1,8 +1,10 @@
 <div class="col-12 py-3 shadow-sm" style="background-color: white !important; border-radius:10px !important;">
     <div class="col-12 mb-3 p-0">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            + Insert Data Guru
-        </button>
+        <?php if (!session('guru')) : ?>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                + Insert Data Guru
+            </button>
+        <?php endif ?>
     </div>
     <div class="table-responsive siswa-table">
         <table id="example" class="table table-striped table-bordered mt-3" style="width:100%">
@@ -13,7 +15,7 @@
                     <th>Nama</th>
                     <th>Password</th>
                     <th>Mapel</th>
-                    <th>Aksi</th>
+                    <th> </th>
                 </tr>
             </thead>
             <tbody>
@@ -25,12 +27,18 @@
                         <td><?= $guru['nuptk'] ?></td>
                         <td><?= $guru['nama_depan'] ?> <?= $guru['nama_belakang'] ?></td>
                         <td><?= $guru['password'] ?></td>
-                        <td><?= $guru['mapel_id'] ?></td>
+                        <td><?= $guru['nama_mapel'] ?></td>
                         <td>
+                            <?php if (session('guru')) : ?>
 
-                            <a href="<?= site_url('/guruDataEdit/' . $guru['id'] . '?edit=true') ?>" class="btn btn-primary p-0 px-1">Edit</a> |
-                            <a href="<?= site_url('/guruDataDelete/' . $guru['id']) ?>" class="btn btn-danger p-0 px-1" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Hapus</a>
+                                <center><a href="<?= site_url('/guruDataEdit/' . $guru['id'] . '?edit=true') ?>" class="btn btn-primary p-0 px-1">Update Profile</a></center>
 
+                            <?php else : ?>
+
+                                <center><a href="<?= site_url('/guruDataEdit/' . $guru['id'] . '?edit=true') ?>" class="my-3 btn small-btn btn-primary p-0 px-1">Edit</a>
+                                <a href="<?= site_url('/guruDataEdit/' . $guru['id']) ?>" class="btn btn-danger p-0 px-1" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Hapus</a></center>
+
+                            <?php endif ?>
                         </td>
                     </tr>
                 <?php endforeach ?>
@@ -42,7 +50,7 @@
                     <th>Nama</th>
                     <th>Password</th>
                     <th>Mapel</th>
-                    <th>Aksi</th>
+                    <th> </th>
                 </tr>
             </tfoot>
         </table>
@@ -59,7 +67,7 @@
             </div>
 
             <!-- Modal body -->
-            <form action="<?=site_url('/guruDataCreate')?>" method="post">
+            <form action="<?= site_url('/guruDataCreate') ?>" method="post">
                 <div class="modal-body">
                     <div class="row m-0">
 
@@ -77,9 +85,9 @@
                             <div class="form-group">
                                 <label for="mapel_id">Mapel : </label>
                                 <select class="form-control" name="mapel_id" id="mapel_id">
-                                    <?php foreach($DataMapel as $mapel): ?>
-                                        <option value="<?=$mapel['id']?>"><?=$mapel['nama_mapel']?></option>
-                                    <?php endforeach?>
+                                    <?php foreach ($DataMapel as $mapel) : ?>
+                                        <option value="<?= $mapel['id'] ?>"><?= $mapel['nama_mapel'] ?></option>
+                                    <?php endforeach ?>
                                 </select>
                             </div>
 

@@ -13,6 +13,6 @@ class GuruModel extends Model
 
     function getGuruWithMapel()
     {
-        return $this->select('tb_guru.*, tb_mapel.mapel')->join('tb_mapel', 'tb_guru.mapel_id = tb_mapel.id', 'left');
+        return $this->select('tb_guru.*, tb_mapel.nama_mapel')->join('tb_mapel', 'tb_guru.mapel_id = tb_mapel.id', 'left');
     }
 }

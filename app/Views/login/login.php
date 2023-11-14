@@ -12,7 +12,14 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
+
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&family=Roboto+Condensed&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
         label {
             font-size: 12px;
         }
@@ -44,14 +51,15 @@
 
             <div class="col-lg-10 col-10 my-auto mx-auto p-5 shadow-lg" style="background-color: white; border-radius:10px;">
                 <div class="row my-auto">
-                    <div class="col-lg-6 my-auto text-center d-none d-lg-flex">
-
+                    <div class="col-lg-7 my-auto text-center d-none d-lg-flex">
+                        <img class="ml-4" src="<?= base_url('images/login.svg') ?>" class="img-fluid" alt="" width="80%">
                     </div>
-                    <div class="col-lg-5 col-12 mx-auto my-auto py-5 text-center">
-                        <h5 class="font-weight-bold pb-4">Selamat Datang</h5>
+                    <div class="col-lg-5 col-12 mx-auto my-auto py-5">
+                        <h5 class="font-weight-bold pb-4">Selamat Datang Di E-Learning</h5>
                         <form method="post" action="<?= site_url('login') ?>">
-                            <input type="text" name="username" id="username" class="form-control" placeholder="Username">
-                            <br>
+                            <label for="username" class="font-weight-bold">Username : Admin | NIS : Siswa | NUPTK : Guru</label>
+                            <input type="text" name="username" id="username" class="form-control mb-2" placeholder="Username/NIS/NUPTK">
+                            <label for="password" class="font-weight-bold">Password : </label>
                             <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                             <br>
                             <input class="input" type="submit" value="Masuk">

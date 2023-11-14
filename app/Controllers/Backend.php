@@ -24,11 +24,12 @@ class Backend extends BaseController
         $mapel = $MapelModel->findAll();
 
 
-        return view('backend/dashboard', ['kelas' => $kelas, 'jurusan' => $jurusan, 'mapel' => $mapel]);
+        return view('backend/page/DashPage', ['kelas' => $kelas, 'jurusan' => $jurusan, 'mapel' => $mapel]);
     }
 
-    public function index1()
-    {
-        return view('backend/guruPage');
-    }
+    // public function dashpage()
+    // {
+    //     return view('backend/page/DashPage');
+    // }
+
 }

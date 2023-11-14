@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard || <?= session('user.role') ?></title>
+    <title>Dashboard || <?= session('user.role') ?? 'Guru' ?></title>
     <!-- Memuat jQuery dan Bootstrap dari CDN -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -42,6 +42,10 @@
     </script>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&family=Roboto+Condensed&display=swap');
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
         label {
             font-size: 12px;
         }
@@ -82,6 +86,7 @@
             max-height: 250px !important;
             overflow-x: auto !important;
         }
+
         .siswa-table {
             max-height: 400px !important;
             overflow-x: auto !important;
@@ -92,7 +97,7 @@
 <body style="background-color: #f1f1f1 !important;">
     <div class="container-fluid">
         <div class="row content">
-            <div class="col-lg-2 col-sm-2 bg-dark shadow-sm text-white">
+            <div class="col-lg-2 p-0 col-sm-2 bg-dark shadow-sm text-white">
 
                 <?= $this->include('backend\partials\navbar') ?>
 
@@ -101,16 +106,17 @@
             <hr>
 
             <div class="col-lg-10 col-sm-10 main-content p-0">
-                <div class="col-12 bg-white shadow-sm">
-                    <h6 class="text-right py-3">
-                        <?= session('user.nama_depan') ?> <?= session('user.nama_belakang') ?><a href="<?= site_url('/logout') ?>" class="btn-sm"><i class="fas fa-sign-out-alt"></i></a>
-                        <!-- font awsome out -->             
-                    </h6>
+                <div class="col-12 bg-white shadow-sm d-flex align-items-right  py-3">
+                    <a class="ml-auto font-weight-bold" style="font-size: 12px; color:#42424280;" href="/logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
                 </div>
+
                 <div class="container">
 
                     <?php
-
+                    
                     $this->renderSection('content');
 
                     ?>

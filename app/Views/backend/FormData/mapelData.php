@@ -11,7 +11,7 @@
                 <input type="submit" class="btn btn-outline-primary mt-2" style="width: 100%;" value="simpan">
             </form>
         </div>
-        <div class="col-lg-6 py-3 table-data mx-auto">
+        <div class="col-lg-7 py-3 table-data mx-auto">
             <h6>Data Mapel</h6>
             <hr>
             <div class="table-responsive table-all">
